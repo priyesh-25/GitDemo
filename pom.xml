@@ -3,6 +3,18 @@
   <groupId>TestNG_Practice</groupId>
   <artifactId>TestNG_Practice</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<maven.complier.source>1.8</maven.complier.source>
+<maven.complier.target>1.8</maven.complier.target>
+</properties>
+
+
+
+
+
+
 <dependencies>
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
@@ -30,6 +42,28 @@
 </dependency>
 
 </dependencies>
+<profiles>  
+<profile> 
+
+<id>Regression</id>
+
+<build>
+    
+<plugins>
+<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</profile>
+</profiles>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
